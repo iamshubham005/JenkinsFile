@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git 'https://github.com/iamshubham005/myweb.git'
+            }
+        }
+        stage('Sonar Scanning') {
+            steps {
+                sh 'mvn sonar:sonar'
+            }
+        }
+    }
+}
